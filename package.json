@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "@ngx-grpc/protoc-gen-ng": "^3.1.1",
+    "tslib": "2.6.1"
+  }
+}

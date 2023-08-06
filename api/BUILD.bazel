@@ -1,0 +1,11 @@
+load("//tools:ng_proto_compile.bzl", "ng_proto_compile")
+
+proto_library(
+  name = "hello_world_proto",
+  srcs = ["Hello_world.proto"],
+)
+
+ng_proto_compile(
+  name = "ng_hello_world_proto",
+  protos = [":hello_world_proto"],
+)
