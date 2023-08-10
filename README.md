@@ -1,6 +1,6 @@
 # Angular + Bazel + gRPC
 
-This is a fully functional example that demonstrates the usage of bazel for building an Angular web application and a backend end service which communicate via gRPC.
+This is a fully functional example that demonstrates the usage of bazel for building an Angular web application and a backend service which communicate via gRPC.
 
 ## How to run the example?
 
