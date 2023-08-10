@@ -1,0 +1,7 @@
+py_binary(
+  name = "server",
+  srcs = ["server.py"],
+  deps = [
+    "//api:hello_world_python",
+  ],
+)

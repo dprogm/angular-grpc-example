@@ -1,10 +1,35 @@
-# Bazel + Angular + gRPC
+# Angular + Bazel + gRPC
 
-Provides the rule `ng_proto_compile` for generating Angular compatible gRPC clients.
+This is a fully functional example that demonstrates the usage of bazel for building an Angular web application and a backend end service which communicate via gRPC.
 
-Run `bazel build //api:ng_hello_world_proto`
+## How to run the example?
 
-This example is based on:
-* [ngx-grpc - Angular gRPC framework (protoc plugin)](https://github.com/smnbbrv/ngx-grpc)
-* [rules_proto_grpc - Bazel build rules for Protobuf and gRPC](https://github.com/rules-proto-grpc/rules_proto_grpc)
+Run the web application:
 
+```bash
+bazel run //applications/demo:serve
+```
+
+Run the backend server:
+
+```bash
+bazel run //server
+```
+
+Build the envoy proxy docker image:
+
+```bash
+docker build -t envoy proxy
+```
+
+Run the envoy proxy:
+
+```bash
+docker run -p 50600:50600 envoy
+```
+
+## Credits
+
+* [angular-ngc template](https://github.com/aspect-build/bazel-examples/tree/main/angular-ngc)
+* [grpc-web envoy setup](https://github.com/grpc/grpc-web/tree/master/net/grpc/gateway/examples/echo)
+* [grpc examples](https://github.com/grpc/grpc/tree/master/examples/python)

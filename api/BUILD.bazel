@@ -1,11 +1,35 @@
-load("//tools:ng_proto_compile.bzl", "ng_proto_compile")
+load("@rules_proto_grpc//python:defs.bzl", "python_grpc_library")
+load("//tools/grpc:ng_proto_compile.bzl", "ng_proto_compile")
+load("//tools:ng.bzl", "ng_project")
 
 proto_library(
   name = "hello_world_proto",
   srcs = ["Hello_world.proto"],
 )
 
+python_grpc_library(
+  name = "hello_world_python",
+  protos = [":hello_world_proto"],
+  visibility = ["//visibility:public"],
+)
+
 ng_proto_compile(
   name = "ng_hello_world_proto",
   protos = [":hello_world_proto"],
+)
+
+ng_project(
+  name = "ng_hello_world_ts",
+  srcs = [
+    ":ng_hello_world_proto",
+  ],
+  root_dir = "ng_hello_world_proto/api",
+  deps = [
+    "//:node_modules/@ngx-grpc/common",
+    "//:node_modules/@ngx-grpc/core",
+    "//:node_modules/google-protobuf",
+    "//:node_modules/@types/google-protobuf",
+    "//:node_modules/@types/node"
+  ],
+  visibility = ["//visibility:public"],
 )

@@ -13,7 +13,7 @@ ng_proto_compile = rule(
     _plugins = attr.label_list(
       providers = [ProtoPluginInfo],
       default = [
-          Label("//tools:protoc_gen_ng_plugin"),
+          Label("//tools/grpc:protoc_gen_ng_plugin"),
       ],
     ),
   ),

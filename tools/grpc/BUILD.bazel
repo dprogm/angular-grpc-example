@@ -1,0 +1,28 @@
+load("@npm//:@ngx-grpc/protoc-gen-ng/package_json.bzl", "bin")
+load("@rules_proto_grpc//:defs.bzl", "proto_plugin")
+
+proto_plugin(
+  name = "protoc_gen_ng_plugin",
+  protoc_plugin_name = "ng",
+  outputs = [
+    "{protopath|dasherize}.pb.ts",
+    "{protopath|dasherize}.pbconf.ts",
+    "{protopath|dasherize}.pbsc.ts",
+  ],
+  tool = ":protoc_gen_ng",
+  visibility = ["//visibility:public"]
+)
+
+bin.protoc_gen_ng_binary(
+  name = "protoc_gen_ng",
+  data = [
+    # TODO This explicit dep is required and can possibly
+    # be removed if that is fixed upstream:
+    # https://github.com/smnbbrv/ngx-grpc/issues/104
+    "//:node_modules/tslib"
+  ],
+  env = {
+    "BAZEL_BINDIR" : "$(BINDIR)"
+  }
+)
+
