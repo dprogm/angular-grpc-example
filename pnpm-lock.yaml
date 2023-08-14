@@ -78,8 +78,8 @@ importers:
         specifier: 7.20.2
         version: 7.20.2
       '@ngx-grpc/protoc-gen-ng':
-        specifier: ^3.1.1
-        version: 3.1.1
+        specifier: ^3.1.2
+        version: 3.1.2
       '@types/babel__core':
         specifier: 7.1.20
         version: 7.1.20
@@ -1272,12 +1272,13 @@ packages:
       tslib: 2.4.1
     dev: false
 
-  /@ngx-grpc/protoc-gen-ng@3.1.1:
-    resolution: {integrity: sha512-xF9CEaazVq+c4PkW+vz1Upt4DoTbCSZbTHNbz8ivp49+GOgusqCAtQG3CRXm/hLNFjh6BF/sY+McAHo1saEpGQ==}
+  /@ngx-grpc/protoc-gen-ng@3.1.2:
+    resolution: {integrity: sha512-epOAs0hEXT2l9l4jjXgaxB5TPtg6AWYq3uRl1vIo7vNHj7qsg0sMIOhxV+bPgZ93YOfKCQkemklt7koKDRJyIw==}
     hasBin: true
     dependencies:
       google-protobuf: 3.21.2
       prettier: 1.19.1
+      tslib: 2.4.1
       winston: 3.10.0
     dev: true
 

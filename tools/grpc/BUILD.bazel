@@ -15,12 +15,6 @@ proto_plugin(
 
 bin.protoc_gen_ng_binary(
   name = "protoc_gen_ng",
-  data = [
-    # TODO This explicit dep is required and can possibly
-    # be removed if that is fixed upstream:
-    # https://github.com/smnbbrv/ngx-grpc/issues/104
-    "//:node_modules/tslib"
-  ],
   env = {
     "BAZEL_BINDIR" : "$(BINDIR)"
   }
